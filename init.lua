@@ -258,6 +258,8 @@ require('lazy').setup({
     },
   },
 
+  { 'windwp/nvim-ts-autotag' },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -595,6 +597,7 @@ require('lazy').setup({
             },
           },
         },
+        emmet_ls = {},
         tsserver = {
           init_options = {
             plugins = {
@@ -619,10 +622,12 @@ require('lazy').setup({
         tailwindcss = {},
         eslint = {},
         cssls = {},
-        emmet_ls = {},
         stylelint_lsp = {
           filetypes = { 'css', 'less', 'scss', 'sugarss', 'vue', 'wxss', 'javascriptreact', 'typescriptreact' },
         },
+        somesass_ls = {},
+        gopls = {},
+        templ = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -764,9 +769,9 @@ require('lazy').setup({
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping.select_next_item(),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          -- ['<CR>'] = cmp.mapping.confirm { select = true },
+          -- ['<Tab>'] = cmp.mapping.select_next_item(),
+          -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -951,7 +956,7 @@ function _Lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _Lazygit_toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _Lazygit_toggle()<CR>', { noremap = true, silent = true, desc = 'Lazy[g]it toggle' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
